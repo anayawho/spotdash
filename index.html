@@ -10,7 +10,7 @@
 body {
 font-family:'Manrope',sans-serif;
 margin:0;
-background: linear-gradient(to bottom,#121212,#1f1f1f);
+background: linear-gradient(to bottom,#1e1e1e,#2f2f2f);
 color:#e5e7eb;
 overflow-x:hidden;
 }
@@ -55,6 +55,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:.875rem; color:#9ca3af;
 <h2>Total Earnings</h2>
 <p>$678</p>
 <span>Current Balance</span>
+<h3 class="mt-4 font-semibold text-white">Suggestions:</h3>
 <div class="suggestions-row">
 <div class="suggestion-card">
 <div class="suggestion-song-name">As It Was - Harry Styles</div>
@@ -63,6 +64,26 @@ footer { text-align:center; padding:2rem 1rem; font-size:.875rem; color:#9ca3af;
 <div class="suggestion-card">
 <div class="suggestion-song-name">About Damn Time - Lizzo</div>
 <div class="suggestion-amount">Earn $5</div>
+</div>
+<div class="suggestion-card">
+<div class="suggestion-song-name">Stay - The Kid LAROI</div>
+<div class="suggestion-amount">Earn $4</div>
+</div>
+<div class="suggestion-card">
+<div class="suggestion-song-name">Levitating - Dua Lipa</div>
+<div class="suggestion-amount">Earn $5</div>
+</div>
+<div class="suggestion-card">
+<div class="suggestion-song-name">Blinding Lights - The Weeknd</div>
+<div class="suggestion-amount">Earn $6</div>
+</div>
+<div class="suggestion-card">
+<div class="suggestion-song-name">Watermelon Sugar - Harry Styles</div>
+<div class="suggestion-amount">Earn $5</div>
+</div>
+<div class="suggestion-card">
+<div class="suggestion-song-name">Good 4 U - Olivia Rodrigo</div>
+<div class="suggestion-amount">Earn $4</div>
 </div>
 </div>
 </div>
@@ -80,16 +101,13 @@ const songs = [
 {title:'Blinding Lights',artist:'The Weeknd',img:'https://i.scdn.co/image/ab67616d0000b273e8e6c35b2d0f098e6f07b4b4'},
 {title:'Watermelon Sugar',artist:'Harry Styles',img:'https://i.scdn.co/image/ab67616d0000b273d3b1f64d3dfe3e5e1b8c2f2a'},
 {title:'Good 4 U',artist:'Olivia Rodrigo',img:'https://i.scdn.co/image/ab67616d0000b2732ef9e9f396b9ef3a7c7b6d0b'},
-{title:'Bad Habits',artist:'Ed Sheeran',img:'https://i.scdn.co/image/ab67616d0000b273be4a78b0a2b4c82fc7e5a3c5'},
-{title:'Montero',artist:'Lil Nas X',img:'https://i.scdn.co/image/ab67616d0000b273a7d68d47b1cd98194b12d9f0'},
-{title:'Shivers',artist:'Ed Sheeran',img:'https://i.scdn.co/image/ab67616d0000b2737f4f7f7e6f1c1d52f4a0b6f1'}
 ];
 
-// Duplicate to make 200 songs
+// duplicate songs to create 200 entries
 const fullSongs = [];
-for(let i=0;i<20;i++){
+for(let i=0;i<29;i++){
 songs.forEach((s,j)=>{
-fullSongs.push({title:s.title + ' ' + (i*10+j+1),artist:s.artist,img:s.img});
+fullSongs.push({title:s.title + ' ' + (i*7+j+1),artist:s.artist,img:s.img});
 });
 }
 

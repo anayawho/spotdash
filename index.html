@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spotify Reviewer Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 body {
 font-family:'Manrope',sans-serif;
 margin:0;
-background: linear-gradient(to bottom,#1e1e1e,#2f2f2f);
+background: linear-gradient(to bottom,#1f1f1f,#2c2c2c);
 color:#e5e7eb;
-overflow-x:hidden;
 }
+header { text-align:center; padding:2rem 1rem; font-size:1.5rem; font-weight:700; color:#fff; }
+header span { color:#1ed760; }
 .dashboard-container { display:flex; flex-direction:column-reverse; min-height:100vh; }
 @media(min-width:1024px){ .dashboard-container { flex-direction: row; } }
 .songs-panel { flex:3; padding:2rem; max-height:90vh; overflow-y:auto; }
-.song-row { display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.05); border-radius:1rem; padding:.75rem 1rem; margin-bottom:.75rem; transition:transform .2s ease, box-shadow .2s ease; }
-.song-row:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(30,215,96,.3); }
+.song-row { display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.05); border-radius:1rem; padding:.75rem 1rem; margin-bottom:.75rem; }
 .song-left { display:flex; align-items:center; gap:1rem; }
 .album-cover { width:50px; height:50px; border-radius:8px; object-fit:cover; flex-shrink:0; }
 .song-info { display:flex; flex-direction:column; }
@@ -35,8 +35,6 @@ overflow-x:hidden;
 .suggestion-card:hover { transform:translateY(-2px); }
 .suggestion-amount { font-weight:700; color:#1ed760; font-size:.95rem; }
 .suggestion-song-name { color:#e5e7eb; font-size:.75rem; margin-top:.2rem; }
-header { text-align:center; padding:2rem 1rem; font-size:1.5rem; font-weight:700; color:#fff; }
-header span { color:#1ed760; }
 footer { text-align:center; padding:2rem 1rem; font-size:.875rem; color:#9ca3af; }
 .songs-panel::-webkit-scrollbar { width:8px; }
 .songs-panel::-webkit-scrollbar-thumb { background:#1ed76080; border-radius:4px; }
@@ -94,16 +92,15 @@ footer { text-align:center; padding:2rem 1rem; font-size:.875rem; color:#9ca3af;
 
 <script>
 const songs = [
-{title:'As It Was',artist:'Harry Styles',img:'https://i.scdn.co/image/ab67616d0000b2738f0c376aef63f842ef9f2b87'},
-{title:'About Damn Time',artist:'Lizzo',img:'https://i.scdn.co/image/ab67616d0000b2736f6342d43a8f66a219d624b0'},
-{title:'Stay',artist:'The Kid LAROI',img:'https://i.scdn.co/image/ab67616d0000b2733a44f4053a6a86b6d5c3b6d3'},
-{title:'Levitating',artist:'Dua Lipa',img:'https://i.scdn.co/image/ab67616d0000b273b89c8b1ffce0fcb7c0f5d95e'},
-{title:'Blinding Lights',artist:'The Weeknd',img:'https://i.scdn.co/image/ab67616d0000b273e8e6c35b2d0f098e6f07b4b4'},
-{title:'Watermelon Sugar',artist:'Harry Styles',img:'https://i.scdn.co/image/ab67616d0000b273d3b1f64d3dfe3e5e1b8c2f2a'},
-{title:'Good 4 U',artist:'Olivia Rodrigo',img:'https://i.scdn.co/image/ab67616d0000b2732ef9e9f396b9ef3a7c7b6d0b'},
+{title:'As It Was',artist:'Harry Styles',img:'https://i.imgur.com/jdXfRbd.jpg'},
+{title:'About Damn Time',artist:'Lizzo',img:'https://i.imgur.com/vW3pCMq.jpg'},
+{title:'Stay',artist:'The Kid LAROI',img:'https://i.imgur.com/0F0k4cG.jpg'},
+{title:'Levitating',artist:'Dua Lipa',img:'https://i.imgur.com/b5wU9fL.jpg'},
+{title:'Blinding Lights',artist:'The Weeknd',img:'https://i.imgur.com/7L8hwaf.jpg'},
+{title:'Watermelon Sugar',artist:'Harry Styles',img:'https://i.imgur.com/0L6pH4K.jpg'},
+{title:'Good 4 U',artist:'Olivia Rodrigo',img:'https://i.imgur.com/LGJ2rKq.jpg'},
 ];
 
-// duplicate songs to create 200 entries
 const fullSongs = [];
 for(let i=0;i<29;i++){
 songs.forEach((s,j)=>{

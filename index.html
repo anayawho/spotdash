@@ -8,112 +8,171 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 body {
- font-family: 'Manrope', sans-serif;
- margin: 0;
- background: linear-gradient(to bottom, #191919, #1e1e1e);
- color: #e5e7eb;
- overflow-x: hidden;
+font-family: 'Manrope', sans-serif;
+margin: 0;
+background: linear-gradient(to bottom, #121212, #1e1e1e);
+color: #e5e7eb;
+overflow-x: hidden;
 }
-.dashboard-container {
- display: flex;
- flex-direction: column;
- min-height: 100vh;
-}
-@media(min-width:768px){
- .dashboard-container { flex-direction: row; }
-}
-/* Left panel - Total earnings */
-.left-panel {
- background: #121212;
- flex: 1;
- padding: 2rem 1rem;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
-}
-.left-panel h2 { font-size:1.25rem; color:#9ca3af; margin-bottom:0.5rem; }
-.left-panel p { font-size:2.5rem; font-weight:800; color:#1ed760; }
 
-/* Right panel - Songs list */
-.right-panel {
- flex: 2;
- padding: 2rem 1rem;
+/* Dashboard Layout */
+.dashboard-container {
+display: flex;
+flex-direction: column-reverse;
+min-height: 100vh;
+}
+@media(min-width:1024px){
+.dashboard-container { flex-direction: row; }
+}
+
+/* Songs Panel */
+.songs-panel {
+flex: 3;
+padding: 2rem;
+max-height: 90vh;
+overflow-y: auto;
 }
 .song-row {
- display: flex;
- justify-content: space-between;
- align-items: center;
- background: rgba(30,215,96,0.05);
- backdrop-filter: blur(8px);
- border-radius: 1rem;
- padding: 1rem 1.5rem;
- margin-bottom: 1rem;
- transition: transform 0.2s, box-shadow 0.2s;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgba(255,255,255,0.05);
+border-radius: 1rem;
+padding: 0.75rem 1rem;
+margin-bottom: 1rem;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .song-row:hover {
- transform: translateY(-2px);
- box-shadow: 0 8px 20px rgba(30,215,96,0.3);
+transform: translateY(-3px);
+box-shadow: 0 10px 25px rgba(30,215,96,0.3);
 }
-.song-title { font-weight:600; font-size:1rem; }
+.song-left {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+.album-cover {
+width:50px; height:50px; border-radius:8px; object-fit:cover;
+}
+.song-info {
+display: flex; flex-direction: column;
+}
+.song-title { font-weight:700; font-size:1rem; }
+.song-artist { font-size:0.85rem; color:#9ca3af; }
 .song-earn { font-weight:700; color:#1ed760; font-size:1rem; }
 
+/* Earnings Panel */
+.earnings-panel {
+flex: 1;
+padding: 2rem;
+background: rgba(30,215,96,0.08);
+backdrop-filter: blur(10px);
+border-radius: 1.5rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+min-width:220px;
+margin-bottom:2rem;
+}
+.earnings-panel h2 { font-size:1.25rem; font-weight:600; color:#e5e7eb; margin-bottom:0.5rem; }
+.earnings-panel p { font-size:2.5rem; font-weight:800; color:#1ed760; margin-bottom:0.5rem; }
+.earnings-panel span { font-size:0.9rem; color:#9ca3af; }
+
 /* Header */
-header { text-align:center; padding:2rem 1rem; font-size:1.5rem; font-weight:700; color:#fff; }
+header {
+text-align:center; padding:2rem 1rem; font-size:1.5rem; font-weight:700; color:#fff;
+}
 header span { color:#1ed760; }
 
 /* Footer */
 footer { text-align:center; padding:2rem 1rem; font-size:0.875rem; color:#9ca3af; }
+
+/* Scrollbar for song panel */
+.songs-panel::-webkit-scrollbar {
+width: 8px;
+}
+.songs-panel::-webkit-scrollbar-thumb {
+background: #1ed76080;
+border-radius: 4px;
+}
+.songs-panel::-webkit-scrollbar-track { background: transparent; }
 </style>
 </head>
 <body>
 
-<header>
- Welcome to <span>Spotify Reviewer Dashboard</span>
-</header>
+<header>Spotify Reviewer Dashboard <span>– Track Your Reviews</span></header>
 
 <div class="dashboard-container">
- <!-- Left panel -->
- <div class="left-panel">
- <h2>Total Earnings</h2>
- <p>$580</p>
- </div>
 
- <!-- Right panel -->
- <div class="right-panel">
- <div class="song-row">
- <span class="song-title">Blinding Lights - The Weeknd</span>
- <span class="song-earn">$5</span>
- </div>
- <div class="song-row">
- <span class="song-title">Levitating - Dua Lipa</span>
- <span class="song-earn">$4</span>
- </div>
- <div class="song-row">
- <span class="song-title">As It Was - Harry Styles</span>
- <span class="song-earn">$6</span>
- </div>
- <div class="song-row">
- <span class="song-title">Stay - The Kid LAROI</span>
- <span class="song-earn">$5</span>
- </div>
- <div class="song-row">
- <span class="song-title">Good 4 U - Olivia Rodrigo</span>
- <span class="song-earn">$4</span>
- </div>
- <div class="song-row">
- <span class="song-title">Industry Baby - Lil Nas X</span>
- <span class="song-earn">$6</span>
- </div>
- <div class="song-row">
- <span class="song-title">Bad Habits - Ed Sheeran</span>
- <span class="song-earn">$5</span>
- </div>
- </div>
+<!-- Songs List -->
+<div class="songs-panel">
+<!-- We'll generate 30 songs -->
+<script>
+const songs = [
+{title:"Blinding Lights",artist:"The Weeknd",earn:4,img:"https://i.scdn.co/image/ab67616d00004851c9b9a0d6b802dbd1c5c9e540"},
+{title:"Levitating",artist:"Dua Lipa",earn:5,img:"https://i.scdn.co/image/ab67616d0000485152be1ffebacfb01c67a301f2"},
+{title:"As It Was",artist:"Harry Styles",earn:6,img:"https://i.scdn.co/image/ab67616d000048515dc2f0cf115d246d12d8d631"},
+{title:"Stay",artist:"The Kid LAROI",earn:5,img:"https://i.scdn.co/image/ab67616d00004851aa2f2f4234bb95f5fbb1d1a0"},
+{title:"Good 4 U",artist:"Olivia Rodrigo",earn:4,img:"https://i.scdn.co/image/ab67616d0000485156d9d8e7cbb0d0f19cb81291"},
+{title:"Industry Baby",artist:"Lil Nas X",earn:6,img:"https://i.scdn.co/image/ab67616d0000485167d7f89cf1d03828eec7bfe7"},
+{title:"Bad Habits",artist:"Ed Sheeran",earn:5,img:"https://i.scdn.co/image/ab67616d00004851fc9c76b09b6f5986f3d91a84"},
+{title:"Shivers",artist:"Ed Sheeran",earn:4,img:"https://i.scdn.co/image/ab67616d00004851a6bb94eb4294f61de0e3dff0"},
+{title:"Cold Heart",artist:"Elton John & Dua Lipa",earn:5,img:"https://i.scdn.co/image/ab67616d00004851e18e5c7f9a6a2fa6d469f7d8"},
+{title:"Easy On Me",artist:"Adele",earn:6,img:"https://i.scdn.co/image/ab67616d00004851945ab6c3e01e48b85d3c1b0f"},
+{title:"abcdefu",artist:"GAYLE",earn:5,img:"https://i.scdn.co/image/ab67616d00004851093d9b8021b88c19b7b08b71"},
+{title:"Stay High",artist:"Tove Lo",earn:4,img:"https://i.scdn.co/image/ab67616d00004851a9b7f8dbbc8421b34f57b7a7"},
+{title:"Ghost",artist:"Justin Bieber",earn:6,img:"https://i.scdn.co/image/ab67616d000048518b5a882ec0d2a81d2a9e430b"},
+{title:"Save Your Tears",artist:"The Weeknd",earn:5,img:"https://i.scdn.co/image/ab67616d00004851b89e2d586b3dfd6820c2d3f7"},
+{title:"Butter",artist:"BTS",earn:4,img:"https://i.scdn.co/image/ab67616d00004851aa51e524c94069a1ffb71c5f"},
+{title:"Watermelon Sugar",artist:"Harry Styles",earn:5,img:"https://i.scdn.co/image/ab67616d0000485121c1edc4f04c31d2fa8b5c2c"},
+{title:"Positions",artist:"Ariana Grande",earn:6,img:"https://i.scdn.co/image/ab67616d00004851cf58fae215d08f28c18db68"},
+{title:"Peaches",artist:"Justin Bieber",earn:5,img:"https://i.scdn.co/image/ab67616d00004851da1f7e8cd9ff2b86e4aeb14"},
+{title:"Montero",artist:"Lil Nas X",earn:4,img:"https://i.scdn.co/image/ab67616d00004851bfb1d0f9ed48c8b26e1b4e1f"},
+{title:"Good Days",artist:"SZA",earn:5,img:"https://i.scdn.co/image/ab67616d00004851094bfb6c0d51f5f90d9d1f4a"},
+{title:"Stay With Me",artist:"Sam Smith",earn:6,img:"https://i.scdn.co/image/ab67616d000048512d8a5d04832f0c59db1b4f7d"},
+{title:"Happier Than Ever",artist:"Billie Eilish",earn:5,img:"https://i.scdn.co/image/ab67616d000048511b7bfa7f0b0f93d4d1d4e3b8"},
+{title:"Savage Love",artist:"Jawsh 685 & Jason Derulo",earn:4,img:"https://i.scdn.co/image/ab67616d000048511b6f0f2bdb5b8b0b0c4d3c1"},
+{title:"Don't Start Now",artist:"Dua Lipa",earn:5,img:"https://i.scdn.co/image/ab67616d00004851b2f9dfb8f1cb2d0b1b6c6c6b"},
+{title:"Circles",artist:"Post Malone",earn:6,img:"https://i.scdn.co/image/ab67616d000048518b2c7d14f5b8f6c0a1c8b7c2"},
+{title:"Adore You",artist:"Harry Styles",earn:5,img:"https://i.scdn.co/image/ab67616d00004851a0d3a7a4e8a6f5e4c9c8b1d3"},
+{title:"Rockstar",artist:"DaBaby",earn:4,img:"https://i.scdn.co/image/ab67616d00004851bfb5f1d1c6a5b8f0d1c1d1d5"},
+{title:"Mood",artist:"24kGoldn",earn:5,img:"https://i.scdn.co/image/ab67616d0000485180b1f4c6b0c8f6d5a1c1d1b2"},
+{title:"Memories",artist:"Maroon 5",earn:6,img:"https://i.scdn.co/image/ab67616d00004851c1b2f3c0d1b4e0a1d1c1d2b"},
+{title:"Havana",artist:"Camila Cabello",earn:5,img:"https://i.scdn.co/image/ab67616d000048511b2f3c0a1b4c0d0a1b2c3d4"}
+];
+
+const songsPanel = document.querySelector('.songs-panel');
+
+songs.forEach(song => {
+const div = document.createElement('div');
+div.className = "song-row";
+div.innerHTML = `
+<div class="song-left">
+<img class="album-cover" src="${song.img}" alt="${song.title}">
+<div class="song-info">
+<span class="song-title">${song.title}</span>
+<span class="song-artist">${song.artist}</span>
+</div>
+</div>
+<span class="song-earn">$${song.earn}</span>
+`;
+songsPanel.appendChild(div);
+});
+</script>
+</div>
+
+<!-- Earnings Panel -->
+<div class="earnings-panel">
+<h2>Total Earnings</h2>
+<p>$580</p>
+<span>From 30 reviewed songs</span>
+</div>
+
 </div>
 
 <footer>
- SSL Secured • Encrypted • Verified Platform
+SSL Secured • Encrypted • Verified Platform
 </footer>
 
 </body>

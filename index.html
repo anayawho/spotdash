@@ -10,7 +10,7 @@
 body {
  font-family: 'Manrope', sans-serif;
  margin: 0;
- background: linear-gradient(to bottom, #121212, #1f1f1f);
+ background: linear-gradient(to bottom, #121212, #1a1a1a);
  color: #e5e7eb;
  overflow-x: hidden;
 }
@@ -151,37 +151,37 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.875rem; color:#9ca3af
  <!-- Earnings Panel -->
  <div class="earnings-panel">
  <h2>Total Earnings</h2>
- <p>$1,020</p>
+ <p>$678</p>
  <span>Current Balance</span>
 
  <div class="suggestions-row">
  <div class="suggestion-card">
- <div class="suggestion-song-name">Blinding Lights</div>
+ <div class="suggestion-song-name">As It Was - Harry Styles</div>
  <div class="suggestion-amount">Earn $5</div>
  </div>
  <div class="suggestion-card">
- <div class="suggestion-song-name">Levitating</div>
+ <div class="suggestion-song-name">About Damn Time - Lizzo</div>
  <div class="suggestion-amount">Earn $4</div>
  </div>
  <div class="suggestion-card">
- <div class="suggestion-song-name">Peaches</div>
- <div class="suggestion-amount">Earn $6</div>
- </div>
- <div class="suggestion-card">
- <div class="suggestion-song-name">Save Your Tears</div>
+ <div class="suggestion-song-name">Ghost - Justin Bieber</div>
  <div class="suggestion-amount">Earn $5</div>
  </div>
  <div class="suggestion-card">
- <div class="suggestion-song-name">Drivers License</div>
+ <div class="suggestion-song-name">Bad Habits - Ed Sheeran</div>
  <div class="suggestion-amount">Earn $4</div>
  </div>
  <div class="suggestion-card">
- <div class="suggestion-song-name">Good 4 U</div>
+ <div class="suggestion-song-name">Unholy - Sam Smith</div>
  <div class="suggestion-amount">Earn $6</div>
  </div>
  <div class="suggestion-card">
- <div class="suggestion-song-name">Montero</div>
+ <div class="suggestion-song-name">Stay - The Kid LAROI</div>
  <div class="suggestion-amount">Earn $5</div>
+ </div>
+ <div class="suggestion-card">
+ <div class="suggestion-song-name">Easy On Me - Adele</div>
+ <div class="suggestion-amount">Earn $4</div>
  </div>
  </div>
  </div>
@@ -193,7 +193,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.875rem; color:#9ca3af
 </footer>
 
 <script>
-// Array of 200 popular songs with album cover URLs (picsum placeholders)
+// Array of 200 popular songs with album cover URLs (Spotify public images)
 const songs = [
  {title:'Blinding Lights', artist:'The Weeknd', img:'https://i.scdn.co/image/ab67616d0000b273c8f8dbb0bbf8d7c9c0e99115'},
  {title:'Levitating', artist:'Dua Lipa', img:'https://i.scdn.co/image/ab67616d0000b2733c234bc898c6ff4b6d1bcd13'},
@@ -205,12 +205,12 @@ const songs = [
  {title:'Kiss Me More', artist:'Doja Cat', img:'https://i.scdn.co/image/ab67616d0000b2733a12e6cf8c8bc1786d2c4bfa'},
  {title:'Stay', artist:'The Kid LAROI', img:'https://i.scdn.co/image/ab67616d0000b2736f77f3e5cfb86b0f3d91e5b4'},
  {title:'Bad Habits', artist:'Ed Sheeran', img:'https://i.scdn.co/image/ab67616d0000b2733d40c9a83b4eaa6f1b9d0917'}
- // ...you can repeat or expand to 200
+ // Repeat to 200 songs dynamically
 ];
 
 const songsPanel = document.getElementById('songsPanel');
 for(let i=0; i<200; i++){
- const song = songs[i % songs.length]; // repeat if less than 200
+ const song = songs[i % songs.length];
  const earn = Math.floor(Math.random()*3)+4; // $4-$6
  const songRow = document.createElement('div');
  songRow.className='song-row';

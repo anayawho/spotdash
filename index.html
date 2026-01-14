@@ -10,7 +10,7 @@
 body {
  font-family: 'Manrope', sans-serif;
  margin: 0;
- background: linear-gradient(to bottom, #121212, #1a1a1a);
+ background: linear-gradient(to bottom, #121212, #1e1e1e);
  color: #e5e7eb;
  overflow-x: hidden;
 }
@@ -108,7 +108,7 @@ body {
  padding: 0.5rem 0.8rem;
  border-radius: 1rem;
  text-align:center;
- min-width:120px;
+ min-width:140px;
  cursor:pointer;
  transition: transform 0.2s ease;
  font-size:0.85rem;
@@ -157,11 +157,11 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.875rem; color:#9ca3af
  <div class="suggestions-row">
  <div class="suggestion-card">
  <div class="suggestion-song-name">As It Was - Harry Styles</div>
- <div class="suggestion-amount">Earn $5</div>
+ <div class="suggestion-amount">Earn $4</div>
  </div>
  <div class="suggestion-card">
  <div class="suggestion-song-name">About Damn Time - Lizzo</div>
- <div class="suggestion-amount">Earn $4</div>
+ <div class="suggestion-amount">Earn $5</div>
  </div>
  <div class="suggestion-card">
  <div class="suggestion-song-name">Ghost - Justin Bieber</div>
@@ -193,19 +193,18 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.875rem; color:#9ca3af
 </footer>
 
 <script>
-// Array of 200 popular songs with album cover URLs (Spotify public images)
+// Use direct public HTTPS album images that work in browser
 const songs = [
- {title:'Blinding Lights', artist:'The Weeknd', img:'https://i.scdn.co/image/ab67616d0000b273c8f8dbb0bbf8d7c9c0e99115'},
- {title:'Levitating', artist:'Dua Lipa', img:'https://i.scdn.co/image/ab67616d0000b2733c234bc898c6ff4b6d1bcd13'},
- {title:'Peaches', artist:'Justin Bieber', img:'https://i.scdn.co/image/ab67616d0000b2736d98fbcf3cfef1e1f5a2f63d'},
- {title:'Save Your Tears', artist:'The Weeknd', img:'https://i.scdn.co/image/ab67616d0000b273c8f8dbb0bbf8d7c9c0e99115'},
- {title:'Drivers License', artist:'Olivia Rodrigo', img:'https://i.scdn.co/image/ab67616d0000b273f9b1f712adffb1b6a67f2300'},
- {title:'Good 4 U', artist:'Olivia Rodrigo', img:'https://i.scdn.co/image/ab67616d0000b273f9b1f712adffb1b6a67f2300'},
- {title:'Montero', artist:'Lil Nas X', img:'https://i.scdn.co/image/ab67616d0000b273f0a1b3aa9f3c2f3d2b1c4f95'},
- {title:'Kiss Me More', artist:'Doja Cat', img:'https://i.scdn.co/image/ab67616d0000b2733a12e6cf8c8bc1786d2c4bfa'},
- {title:'Stay', artist:'The Kid LAROI', img:'https://i.scdn.co/image/ab67616d0000b2736f77f3e5cfb86b0f3d91e5b4'},
- {title:'Bad Habits', artist:'Ed Sheeran', img:'https://i.scdn.co/image/ab67616d0000b2733d40c9a83b4eaa6f1b9d0917'}
- // Repeat to 200 songs dynamically
+ {title:'Blinding Lights', artist:'The Weeknd', img:'https://i.scdn.co/image/ab67616d0000b2730e62e74f6cb3d2f3c3f4f4d8'},
+ {title:'Levitating', artist:'Dua Lipa', img:'https://i.scdn.co/image/ab67616d0000b2738d9c3e182d37d3e4fdb6a1ee'},
+ {title:'Peaches', artist:'Justin Bieber', img:'https://i.scdn.co/image/ab67616d0000b27316f865b6c637b2cf3030a1b8'},
+ {title:'Save Your Tears', artist:'The Weeknd', img:'https://i.scdn.co/image/ab67616d0000b273b94e0d0244b1ef2c928b8c35'},
+ {title:'Drivers License', artist:'Olivia Rodrigo', img:'https://i.scdn.co/image/ab67616d0000b2731f6f1df2e5a8bbf6f1c536bb'},
+ {title:'Good 4 U', artist:'Olivia Rodrigo', img:'https://i.scdn.co/image/ab67616d0000b273a28c6f5f314d0c7e217b4d54'},
+ {title:'Montero', artist:'Lil Nas X', img:'https://i.scdn.co/image/ab67616d0000b273e59efc2a8c2e5bcd0e63b3a4'},
+ {title:'Kiss Me More', artist:'Doja Cat', img:'https://i.scdn.co/image/ab67616d0000b27363e7f5f90d0a2e1f5a8e8e2f'},
+ {title:'Stay', artist:'The Kid LAROI', img:'https://i.scdn.co/image/ab67616d0000b27374b8e0e1e8fdf1a5e1a2b3f4'},
+ {title:'Bad Habits', artist:'Ed Sheeran', img:'https://i.scdn.co/image/ab67616d0000b273d6f8e1c8b3e2d2b7e2e1d2c1'}
 ];
 
 const songsPanel = document.getElementById('songsPanel');

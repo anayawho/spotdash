@@ -10,7 +10,7 @@
 body {
 font-family:'Manrope',sans-serif;
 margin:0;
-background: linear-gradient(to bottom,#1f1f1f,#2c2c2c);
+background: linear-gradient(to bottom,#121212,#1c1c1c,#1ed76010);
 color:#e5e7eb;
 }
 header { text-align:center; padding:2rem 1rem; font-size:1.5rem; font-weight:700; color:#fff; }
@@ -31,8 +31,8 @@ header span { color:#1ed760; }
 .earnings-panel p { font-size:2.5rem; font-weight:800; color:#1ed760; margin-bottom:.5rem; }
 .earnings-panel span { font-size:.95rem; color:#9ca3af; margin-bottom:1rem; }
 .suggestions-row { display:flex; gap:.8rem; margin-top:1rem; flex-wrap:wrap; justify-content:center; }
-.suggestion-card { background: rgba(30,215,96,.1); padding:.5rem .8rem; border-radius:1rem; text-align:center; min-width:140px; cursor:pointer; transition: transform .2s ease; font-size:.85rem; }
-.suggestion-card:hover { transform:translateY(-2px); }
+.suggestion-card { background: rgba(30,215,96,.1); padding:.5rem .8rem; border-radius:1rem; text-align:center; min-width:140px; cursor:pointer; transition: transform .2s ease, background .3s ease; font-size:.85rem; }
+.suggestion-card:hover { transform:translateY(-2px); background: rgba(30,215,96,.2); }
 .suggestion-amount { font-weight:700; color:#1ed760; font-size:.95rem; }
 .suggestion-song-name { color:#e5e7eb; font-size:.75rem; margin-top:.2rem; }
 footer { text-align:center; padding:2rem 1rem; font-size:.875rem; color:#9ca3af; }
@@ -56,32 +56,24 @@ footer { text-align:center; padding:2rem 1rem; font-size:.875rem; color:#9ca3af;
 <h3 class="mt-4 font-semibold text-white">Suggestions:</h3>
 <div class="suggestions-row">
 <div class="suggestion-card">
-<div class="suggestion-song-name">As It Was - Harry Styles</div>
+<img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?&w=100&h=100&fit=crop" class="album-cover" alt="Song 1">
+<div class="suggestion-song-name">Easy On Me - Adele</div>
 <div class="suggestion-amount">Earn $4</div>
 </div>
 <div class="suggestion-card">
-<div class="suggestion-song-name">About Damn Time - Lizzo</div>
+<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?&w=100&h=100&fit=crop" class="album-cover" alt="Song 2">
+<div class="suggestion-song-name">Shivers - Ed Sheeran</div>
 <div class="suggestion-amount">Earn $5</div>
 </div>
 <div class="suggestion-card">
+<img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?&w=100&h=100&fit=crop" class="album-cover" alt="Song 3">
+<div class="suggestion-song-name">Bad Habits - Ed Sheeran</div>
+<div class="suggestion-amount">Earn $4</div>
+</div>
+<div class="suggestion-card">
+<img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?&w=100&h=100&fit=crop" class="album-cover" alt="Song 4">
 <div class="suggestion-song-name">Stay - The Kid LAROI</div>
-<div class="suggestion-amount">Earn $4</div>
-</div>
-<div class="suggestion-card">
-<div class="suggestion-song-name">Levitating - Dua Lipa</div>
 <div class="suggestion-amount">Earn $5</div>
-</div>
-<div class="suggestion-card">
-<div class="suggestion-song-name">Blinding Lights - The Weeknd</div>
-<div class="suggestion-amount">Earn $6</div>
-</div>
-<div class="suggestion-card">
-<div class="suggestion-song-name">Watermelon Sugar - Harry Styles</div>
-<div class="suggestion-amount">Earn $5</div>
-</div>
-<div class="suggestion-card">
-<div class="suggestion-song-name">Good 4 U - Olivia Rodrigo</div>
-<div class="suggestion-amount">Earn $4</div>
 </div>
 </div>
 </div>
@@ -92,13 +84,13 @@ footer { text-align:center; padding:2rem 1rem; font-size:.875rem; color:#9ca3af;
 
 <script>
 const songs = [
-{title:'As It Was',artist:'Harry Styles',img:'https://i.imgur.com/jdXfRbd.jpg'},
-{title:'About Damn Time',artist:'Lizzo',img:'https://i.imgur.com/vW3pCMq.jpg'},
-{title:'Stay',artist:'The Kid LAROI',img:'https://i.imgur.com/0F0k4cG.jpg'},
-{title:'Levitating',artist:'Dua Lipa',img:'https://i.imgur.com/b5wU9fL.jpg'},
-{title:'Blinding Lights',artist:'The Weeknd',img:'https://i.imgur.com/7L8hwaf.jpg'},
-{title:'Watermelon Sugar',artist:'Harry Styles',img:'https://i.imgur.com/0L6pH4K.jpg'},
-{title:'Good 4 U',artist:'Olivia Rodrigo',img:'https://i.imgur.com/LGJ2rKq.jpg'},
+{title:'As It Was',artist:'Harry Styles',img:'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?&w=100&h=100&fit=crop'},
+{title:'About Damn Time',artist:'Lizzo',img:'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?&w=100&h=100&fit=crop'},
+{title:'Stay',artist:'The Kid LAROI',img:'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?&w=100&h=100&fit=crop'},
+{title:'Levitating',artist:'Dua Lipa',img:'https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?&w=100&h=100&fit=crop'},
+{title:'Blinding Lights',artist:'The Weeknd',img:'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?&w=100&h=100&fit=crop'},
+{title:'Watermelon Sugar',artist:'Harry Styles',img:'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?&w=100&h=100&fit=crop'},
+{title:'Good 4 U',artist:'Olivia Rodrigo',img:'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?&w=100&h=100&fit=crop'},
 ];
 
 const fullSongs = [];

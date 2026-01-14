@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify Reviewer Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body {
+ font-family: 'Manrope', sans-serif;
+ margin: 0;
+ background: linear-gradient(to bottom, #191919, #1e1e1e);
+ color: #e5e7eb;
+ overflow-x: hidden;
+}
+.dashboard-container {
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+@media(min-width:768px){
+ .dashboard-container { flex-direction: row; }
+}
+/* Left panel - Total earnings */
+.left-panel {
+ background: #121212;
+ flex: 1;
+ padding: 2rem 1rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+.left-panel h2 { font-size:1.25rem; color:#9ca3af; margin-bottom:0.5rem; }
+.left-panel p { font-size:2.5rem; font-weight:800; color:#1ed760; }
+
+/* Right panel - Songs list */
+.right-panel {
+ flex: 2;
+ padding: 2rem 1rem;
+}
+.song-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background: rgba(30,215,96,0.05);
+ backdrop-filter: blur(8px);
+ border-radius: 1rem;
+ padding: 1rem 1.5rem;
+ margin-bottom: 1rem;
+ transition: transform 0.2s, box-shadow 0.2s;
+}
+.song-row:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 8px 20px rgba(30,215,96,0.3);
+}
+.song-title { font-weight:600; font-size:1rem; }
+.song-earn { font-weight:700; color:#1ed760; font-size:1rem; }
+
+/* Header */
+header { text-align:center; padding:2rem 1rem; font-size:1.5rem; font-weight:700; color:#fff; }
+header span { color:#1ed760; }
+
+/* Footer */
+footer { text-align:center; padding:2rem 1rem; font-size:0.875rem; color:#9ca3af; }
+</style>
+</head>
+<body>
+
+<header>
+ Welcome to <span>Spotify Reviewer Dashboard</span>
+</header>
+
+<div class="dashboard-container">
+ <!-- Left panel -->
+ <div class="left-panel">
+ <h2>Total Earnings</h2>
+ <p>$580</p>
+ </div>
+
+ <!-- Right panel -->
+ <div class="right-panel">
+ <div class="song-row">
+ <span class="song-title">Blinding Lights - The Weeknd</span>
+ <span class="song-earn">$5</span>
+ </div>
+ <div class="song-row">
+ <span class="song-title">Levitating - Dua Lipa</span>
+ <span class="song-earn">$4</span>
+ </div>
+ <div class="song-row">
+ <span class="song-title">As It Was - Harry Styles</span>
+ <span class="song-earn">$6</span>
+ </div>
+ <div class="song-row">
+ <span class="song-title">Stay - The Kid LAROI</span>
+ <span class="song-earn">$5</span>
+ </div>
+ <div class="song-row">
+ <span class="song-title">Good 4 U - Olivia Rodrigo</span>
+ <span class="song-earn">$4</span>
+ </div>
+ <div class="song-row">
+ <span class="song-title">Industry Baby - Lil Nas X</span>
+ <span class="song-earn">$6</span>
+ </div>
+ <div class="song-row">
+ <span class="song-title">Bad Habits - Ed Sheeran</span>
+ <span class="song-earn">$5</span>
+ </div>
+ </div>
+</div>
+
+<footer>
+ SSL Secured • Encrypted • Verified Platform
+</footer>
+
+</body>
+</html>
